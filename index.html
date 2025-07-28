@@ -71,8 +71,54 @@
         INFORMACIÓN DEL FOOTER
     </footer>
 
-    <script>
-// aquí va el fetch y la lógica para cargar los datos desde AWS (te doy el código completo más abajo)
+<script>
+async function cargarDatos() {
+    const resTop3 = await fetch('https://18.224.17.89/api/top3');
+    const top3 = await resTop3.json();
+
+    const tarjetas = document.querySelectorAll('.tarjetaJugador');
+    top3.forEach((jugador, i) => {
+    tarjetas[i].innerHTML = `
+        <img src="${jugador.imagenUrl}" alt="Jugador" />
+        <p>${jugador.apellido.toUpperCase()}, ${jugador.nombre}<br/>
+        ${calcularEdad(jugador.fechaNacimiento)} años<br/>
+        ${jugador.puntos} pts</p>
+    `;
+    });
+
+    const ganadorRes = await fetch('https://18.224.17.89/api/ganador');
+    const ganador = await ganadorRes.json();
+    document.querySelector('.seccionGanadorUltimoTorneo .card').innerHTML = `
+    <img src="${ganador.imagenUrl}" alt="Ganador" />
+    <p>${ganador.apellido.toUpperCase()}, ${ganador.nombre}<br/>
+    ${calcularEdad(ganador.fechaNacimiento)} años<br/>
+    #${ganador.rankingNacional}, ${ganador.puntos} pts</p>
+    <a href=""><div class="masInformacion">MÁS...</div></a>
+    `;
+
+    const tablaRes = await fetch('https://18.224.17.89/api/top5');
+    const top5 = await tablaRes.json();
+    const tabla = document.querySelector('table');
+    tabla.innerHTML = `
+    <tr><th>Nombre</th><th>Apellido</th><th>Equipo</th><th>Puntaje</th></tr>
+    ${top5.map(j => `<tr>
+        <td>${j.nombre}</td><td>${j.apellido}</td><td>${j.equipo}</td><td>${j.puntos}</td>
+    </tr>`).join('')}
+    `;
+}
+
+function calcularEdad(fecha) {
+    const nacimiento = new Date(fecha);
+    const hoy = new Date();
+    let edad = hoy.getFullYear() - nacimiento.getFullYear();
+    const m = hoy.getMonth() - nacimiento.getMonth();
+    if (m < 0 || (m === 0 && hoy.getDate() < nacimiento.getDate())) edad--;
+    return edad;
+}
+
+cargarDatos();
+</script>
+
 </script>
 </body>
 </html>
