@@ -1,13 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba</title>
-    <link rel="stylesheet" href="estilos.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ranking General</title>
+    <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
-    Hola mundo!
-    <p>Esta es una prueba de un archivo HTML.</p>
+    <header>
+        <h1>AWS PARA TENIS DE MESA EN PANAMÁ</h1>
+    </header>
+
+    <nav>
+        <a class="enlaceMenu" href="/index.html"><button class="active">RANKING GENERAL</button></a>
+        <a class="enlaceMenu" href="/html/Clubes.html"><button>CLUBES</button></a>
+        <a class="enlaceMenu" href="/html/Torneos.html"><button>TORNEOS</button></a>
+        <a class="enlaceMenu" href="/html/Perfil.html"><button>PERFIL</button></a>
+    </nav>
+
+    <div class="contenedorMain">
+        <div class="contenedorCartas">
+            <div class="contenedorTitulo-Cartas">
+                <div class="tituloJugadores">
+                    TOP 3 JUGADORES DE PANAMÁ
+                </div>
+
+                <div class="tarjetasJugadores">
+                    <!--En esta sección de las cartas necesito que se haga una consulta a la base de datos de los 3 jugadores con mayor puntaje, uno para cada carta-->
+                    <div class="tarjetaJugador">
+                        <!--Aquí necesito una consulta a las imagenes que tengo alojadas en S3, cada imagen tiene como nombre, el número de cédula-->
+                        <img alt="Jugador" />
+                        <!--Aquí necesito una consulta a la base de datos de jugadores, las tres consultas son para no poner esto manual, y que cuando se actualice el ranking se actualice esto también-->
+                        <p>APELLIDO, NOMBRE<br/>EDAD<br/>PUNTAJE</p>
+                    </div>
+                    <div class="tarjetaJugador">
+                        <img alt="Jugador" />
+                        <p>APELLIDO, NOMBRE<br/>EDAD<br/>PUNTAJE</p>
+                    </div>
+                    <div class="tarjetaJugador">
+                        <img alt="Jugador" />
+                        <p>APELLIDO, NOMBRE<br/>EDAD<br/>PUNTAJE</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seccionGanadorUltimoTorneo">
+                <div class="sectionTitulo">
+                    <!--Aquí necesito lo mismo que en las anteriores cartas, solo que aquí la consulta puede ser random, no tiene que ser de los mejores del ranking-->
+                    GANADOR DEL<br/>ÚLTIMO TORNEO
+                </div>
+                <div class="card">
+                    <img alt="Ganador" />
+                    <p>APELLIDO, NOMBRE<br/>EDAD<br/>#POSICIÓN, PUNTAJE</p>
+                    <a href=""><div class="masInformacion">MÁS...</div></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccionTabla">
+            <div class="seccionTitulo">
+                RANKING DE JUGADORES
+            </div>
+            <table>
+                <!--Quiero que la tabla en vez de ponerle los datos yo mismo, quiero que la tabla haga una consulta a la base de datos con el top 5 de jugadores de Panamá y que se muestren aquí con las columnas, nombre, apellido, equipo, y su puntaje-->
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        INFORMACIÓN DEL FOOTER
+    </footer>
+
+    <script>
+// aquí va el fetch y la lógica para cargar los datos desde AWS (te doy el código completo más abajo)
+</script>
 </body>
 </html>
