@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Ranking General</title>
     <link rel="stylesheet" href="/css/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -26,11 +27,10 @@
                 </div>
 
                 <div class="tarjetasJugadores">
-                    <!--En esta sección de las cartas necesito que se haga una consulta a la base de datos de los 3 jugadores con mayor puntaje, uno para cada carta-->
                     <div class="tarjetaJugador">
-                        <!--Aquí necesito una consulta a las imagenes que tengo alojadas en S3, cada imagen tiene como nombre, el número de cédula-->
+                        
                         <img alt="Jugador" />
-                        <!--Aquí necesito una consulta a la base de datos de jugadores, las tres consultas son para no poner esto manual, y que cuando se actualice el ranking se actualice esto también-->
+                        
                         <p>APELLIDO, NOMBRE<br/>EDAD<br/>PUNTAJE</p>
                     </div>
                     <div class="tarjetaJugador">
@@ -46,7 +46,7 @@
 
             <div class="seccionGanadorUltimoTorneo">
                 <div class="sectionTitulo">
-                    <!--Aquí necesito lo mismo que en las anteriores cartas, solo que aquí la consulta puede ser random, no tiene que ser de los mejores del ranking-->
+                    
                     GANADOR DEL<br/>ÚLTIMO TORNEO
                 </div>
                 <div class="card">
@@ -62,13 +62,13 @@
                 RANKING DE JUGADORES
             </div>
             <table>
-                <!--Quiero que la tabla en vez de ponerle los datos yo mismo, quiero que la tabla haga una consulta a la base de datos con el top 5 de jugadores de Panamá y que se muestren aquí con las columnas, nombre, apellido, equipo, y su puntaje-->
+                
             </table>
         </div>
     </div>
 
     <footer>
-        INFORMACIÓN DEL FOOTER
+        ALBERTO MÁRQUEZ     1SF251      8-978-474
     </footer>
 
 <script>
@@ -117,8 +117,6 @@ function calcularEdad(fecha) {
 }
 
 cargarDatos();
-</script>
-
 </script>
 </body>
 </html>
